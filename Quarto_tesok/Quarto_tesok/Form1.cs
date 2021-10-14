@@ -16,5 +16,10 @@ namespace Quarto_tesok
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // bábúk osztály, azzal jó lehet
+        }
     }
 }
