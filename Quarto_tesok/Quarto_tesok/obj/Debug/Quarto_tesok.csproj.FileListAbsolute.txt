@@ -8,3 +8,13 @@ D:\GIT_2_14_SZFT\BT\Quarto\Quarto_tesok\Quarto_tesok\bin\Debug\Quarto_tesok.exe
 D:\GIT_2_14_SZFT\BT\Quarto\Quarto_tesok\Quarto_tesok\bin\Debug\Quarto_tesok.pdb
 D:\GIT_2_14_SZFT\BT\Quarto\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.exe
 D:\GIT_2_14_SZFT\BT\Quarto\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.pdb
+D:\Github_BA_2_14SZFT\quatro\Quarto_tesok\Quarto_tesok\bin\Debug\Quarto_tesok.exe.config
+D:\Github_BA_2_14SZFT\quatro\Quarto_tesok\Quarto_tesok\bin\Debug\Quarto_tesok.exe
+D:\Github_BA_2_14SZFT\quatro\Quarto_tesok\Quarto_tesok\bin\Debug\Quarto_tesok.pdb
+D:\Github_BA_2_14SZFT\quatro\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.csprojAssemblyReference.cache
+D:\Github_BA_2_14SZFT\quatro\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.Form1.resources
+D:\Github_BA_2_14SZFT\quatro\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.Properties.Resources.resources
+D:\Github_BA_2_14SZFT\quatro\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.csproj.GenerateResource.cache
+D:\Github_BA_2_14SZFT\quatro\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.csproj.CoreCompileInputs.cache
+D:\Github_BA_2_14SZFT\quatro\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.exe
+D:\Github_BA_2_14SZFT\quatro\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.pdb
