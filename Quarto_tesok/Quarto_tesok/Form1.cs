@@ -38,7 +38,52 @@ namespace Quarto_tesok
                     //kep.MouseLeave += new System.EventHandler(this.eltunes);
                 }
             }
-           
+            feher();
+            fekete();
+        }
+
+        private void fekete()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    PictureBox kep = new PictureBox();
+                    kep.Location = new System.Drawing.Point((645 + (i * 86)), (472 - (j * 116)));
+                    kep.Name = i + " " + j;
+                    kep.Visible = true;
+                    kep.Size = new System.Drawing.Size(80, 110);
+                    kep.BackColor = Color.LightBlue;
+                    kep.Tag = "fekete";
+                    Controls.Add(kep);
+                    kep.BringToFront();
+                    //kep.Click += new System.EventHandler(this.klikk);
+                    //kep.MouseHover += new System.EventHandler(this.rajta);
+                    //kep.MouseLeave += new System.EventHandler(this.eltunes);
+                }
+            }
+        }
+
+        private void feher()
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    PictureBox kep = new PictureBox();
+                    kep.Location = new System.Drawing.Point((2 + (i * 86)), (472 - (j * 116)));
+                    kep.Name = i + " " + j;
+                    kep.Visible = true;
+                    kep.Size = new System.Drawing.Size(80, 110);
+                    kep.BackColor = Color.LightBlue;
+                    kep.Tag = "feher";
+                    Controls.Add(kep);
+                    kep.BringToFront();
+                    //kep.Click += new System.EventHandler(this.klikk);
+                    //kep.MouseHover += new System.EventHandler(this.rajta);
+                    //kep.MouseLeave += new System.EventHandler(this.eltunes);
+                }
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -114,8 +159,22 @@ namespace Quarto_tesok
 
         private void button1_Click(object sender, EventArgs e)
         {
-            palya();//pálya generálása
-
+            
+            if(textBox1.Text!=""&&textBox2.Text!=""&&textBox2.Text!=textBox1.Text)
+            {
+                palya();//pálya generálása
+                label1.Visible = false;
+                label2.Visible = false;
+                textBox1.Visible = false;
+                textBox2.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Nem megfelelőek a bemeneti adatok.", "Hiba a belépésnél", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }
