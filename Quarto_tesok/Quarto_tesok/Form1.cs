@@ -11,11 +11,16 @@ using System.Windows.Forms;
 namespace Quarto_tesok
 {
     public partial class Form1 : Form
-    {
+    { 
+        static Babuk[] babu = new Babuk[16];
+        static PictureBox[,] kepek = new PictureBox[4,4];
         public Form1()
         {
             InitializeComponent();
-           
+            for (int i = 0; i < babu.Length; i++)
+            {
+                babu[i] = new Babuk("0", "0", "0", false);
+            }
         }
 
         private void palya()
@@ -33,6 +38,7 @@ namespace Quarto_tesok
                     kep.Tag = "0";
                     Controls.Add(kep);
                     kep.BringToFront();
+
                     //kep.Click += new System.EventHandler(this.klikk);
                     //kep.MouseHover += new System.EventHandler(this.rajta);
                     //kep.MouseLeave += new System.EventHandler(this.eltunes);
@@ -57,6 +63,7 @@ namespace Quarto_tesok
                     kep.Tag = "fekete";
                     Controls.Add(kep);
                     kep.BringToFront();
+                    kepek[i,j]= kep;
                     //kep.Click += new System.EventHandler(this.klikk);
                     //kep.MouseHover += new System.EventHandler(this.rajta);
                     //kep.MouseLeave += new System.EventHandler(this.eltunes);
@@ -66,7 +73,7 @@ namespace Quarto_tesok
 
         private void feher()
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 2; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
@@ -79,6 +86,7 @@ namespace Quarto_tesok
                     kep.Tag = "feher";
                     Controls.Add(kep);
                     kep.BringToFront();
+                    kepek[i, j] = kep;
                     //kep.Click += new System.EventHandler(this.klikk);
                     //kep.MouseHover += new System.EventHandler(this.rajta);
                     //kep.MouseLeave += new System.EventHandler(this.eltunes);
@@ -89,8 +97,55 @@ namespace Quarto_tesok
         private void Form1_Load(object sender, EventArgs e)
         {
             // bábúk osztály, azzal jó lehet
-            Babuk [] babu = new Babuk[16];
-            /*
+            feketefeltoltes();
+            feherfeltoltes();
+        }
+
+        private void feherfeltoltes()
+        {
+            babu[8].Szin = "feher";
+            babu[8].Alak = "kör";
+            babu[8].Méret = "kicsi";
+            babu[8].Lyukas = false;
+
+            babu[9].Szin = "feher";
+            babu[9].Alak = "kör";
+            babu[9].Méret = "kicsi";
+            babu[9].Lyukas = true;
+
+            babu[10].Szin = "feher";
+            babu[10].Alak = "kör";
+            babu[10].Méret = "nagy";
+            babu[10].Lyukas = false;
+
+            babu[11].Szin = "feher";
+            babu[11].Alak = "kör";
+            babu[11].Méret = "nagy";
+            babu[11].Lyukas = true;
+
+            babu[12].Szin = "feher";
+            babu[12].Alak = "negyzet";
+            babu[12].Méret = "kicsi";
+            babu[12].Lyukas = false;
+
+            babu[13].Szin = "feher";
+            babu[13].Alak = "negyzet";
+            babu[13].Méret = "kicsi";
+            babu[13].Lyukas = true;
+
+            babu[14].Szin = "feher";
+            babu[14].Alak = "negyzet";
+            babu[14].Méret = "nagy";
+            babu[14].Lyukas = false;
+
+            babu[15].Szin = "feher";
+            babu[15].Alak = "negyzet";
+            babu[15].Méret = "nagy";
+            babu[15].Lyukas = true;
+        }
+
+        private void feketefeltoltes()
+        {
             babu[0].Szin = "fekete";
             babu[0].Alak = "kör";
             babu[0].Méret = "kicsi";
@@ -111,17 +166,25 @@ namespace Quarto_tesok
             babu[3].Méret = "nagy";
             babu[3].Lyukas = true;
 
-            babu[3].Szin = "fekete";
-            babu[3].Alak = "negyzet";
-            babu[3].Méret = "kicsi";
-            babu[3].Lyukas = false;
-
             babu[4].Szin = "fekete";
             babu[4].Alak = "negyzet";
             babu[4].Méret = "kicsi";
             babu[4].Lyukas = false;
-            */
 
+            babu[5].Szin = "fekete";
+            babu[5].Alak = "negyzet";
+            babu[5].Méret = "kicsi";
+            babu[5].Lyukas = true;
+
+            babu[6].Szin = "fekete";
+            babu[6].Alak = "negyzet";
+            babu[6].Méret = "nagy";
+            babu[6].Lyukas = false;
+
+            babu[7].Szin = "fekete";
+            babu[7].Alak = "negyzet";
+            babu[7].Méret = "nagy";
+            babu[7].Lyukas = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
