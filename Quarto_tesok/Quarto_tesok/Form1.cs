@@ -13,7 +13,7 @@ namespace Quarto_tesok
     public partial class Form1 : Form
     { 
         static Babuk[] babu = new Babuk[16];
-        static PictureBox[,] kepek = new PictureBox[4,4];
+        static PictureBox[] kepek = new PictureBox[16];
         public Form1()
         {
             InitializeComponent();
@@ -50,6 +50,7 @@ namespace Quarto_tesok
 
         private void fekete()
         {
+            int db = 0;
             for (int i = 0; i < 2; i++)
             {
                 for (int j = 0; j < 4; j++)
@@ -63,7 +64,9 @@ namespace Quarto_tesok
                     kep.Tag = "fekete";
                     Controls.Add(kep);
                     kep.BringToFront();
-                    kepek[i,j]= kep;
+                    kep.Image = Image.FromFile(db+".png");
+                    kepek[db]= kep;
+                    db++;
                     //kep.Click += new System.EventHandler(this.klikk);
                     //kep.MouseHover += new System.EventHandler(this.rajta);
                     //kep.MouseLeave += new System.EventHandler(this.eltunes);
@@ -73,7 +76,8 @@ namespace Quarto_tesok
 
         private void feher()
         {
-            for (int i = 2; i < 4; i++)
+            int db = 8;
+            for (int i = 0; i < 2; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
@@ -86,7 +90,9 @@ namespace Quarto_tesok
                     kep.Tag = "feher";
                     Controls.Add(kep);
                     kep.BringToFront();
-                    kepek[i, j] = kep;
+                    kep.Image = Image.FromFile(db + ".png");
+                    kepek[db] = kep;
+                    db++;
                     //kep.Click += new System.EventHandler(this.klikk);
                     //kep.MouseHover += new System.EventHandler(this.rajta);
                     //kep.MouseLeave += new System.EventHandler(this.eltunes);
