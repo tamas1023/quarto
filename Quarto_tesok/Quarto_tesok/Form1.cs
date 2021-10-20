@@ -11,9 +11,12 @@ using System.Windows.Forms;
 namespace Quarto_tesok
 {
     public partial class Form1 : Form
-    { 
+    {
+        static string nev1;
+        static string nev2;
         static Babuk[] babu = new Babuk[16];
         static PictureBox[] kepek = new PictureBox[16];
+        static int hanyadik = 0;
         public Form1()
         {
             InitializeComponent();
@@ -39,13 +42,38 @@ namespace Quarto_tesok
                     Controls.Add(kep);
                     kep.BringToFront();
 
-                    //kep.Click += new System.EventHandler(this.klikk);
+                    kep.Click += new System.EventHandler(this.palyaklikk);
                     //kep.MouseHover += new System.EventHandler(this.rajta);
                     //kep.MouseLeave += new System.EventHandler(this.eltunes);
                 }
             }
             feher();
             fekete();
+        }
+
+        private void palyaklikk(object sender, EventArgs e)
+        {
+            PictureBox kapcsolt = sender as PictureBox;
+
+            if (pictureBox1.Image==null)
+            {
+                MessageBox.Show("Válassz ki előtte egy elemet");
+            }
+            else
+            {
+                kapcsolt.Image = pictureBox1.Image;
+                kapcsolt.Enabled = false;
+                kepek[hanyadik].Visible = false;
+                pictureBox1.Image = null;
+                if (label5.Text==nev1)
+                {
+                    label5.Text = nev2;
+                }
+                else
+                {
+                    label5.Text = nev1;
+                }
+            }
         }
 
         private void fekete()
@@ -57,7 +85,7 @@ namespace Quarto_tesok
                 {
                     PictureBox kep = new PictureBox();
                     kep.Location = new System.Drawing.Point((645 + (i * 86)), (472 - (j * 116)));
-                    kep.Name = i + " " + j;
+                    kep.Name = ""+db;
                     kep.Visible = true;
                     kep.Size = new System.Drawing.Size(80, 110);
                     kep.BackColor = Color.LightBlue;
@@ -67,7 +95,7 @@ namespace Quarto_tesok
                     kep.Image = Image.FromFile(db+".png");
                     kepek[db]= kep;
                     db++;
-                    //kep.Click += new System.EventHandler(this.klikk);
+                    kep.Click += new System.EventHandler(this.klikk);
                     //kep.MouseHover += new System.EventHandler(this.rajta);
                     //kep.MouseLeave += new System.EventHandler(this.eltunes);
                 }
@@ -83,7 +111,7 @@ namespace Quarto_tesok
                 {
                     PictureBox kep = new PictureBox();
                     kep.Location = new System.Drawing.Point((2 + (i * 86)), (472 - (j * 116)));
-                    kep.Name = i + " " + j;
+                    kep.Name = ""+db;
                     kep.Visible = true;
                     kep.Size = new System.Drawing.Size(80, 110);
                     kep.BackColor = Color.LightBlue;
@@ -93,11 +121,18 @@ namespace Quarto_tesok
                     kep.Image = Image.FromFile(db + ".png");
                     kepek[db] = kep;
                     db++;
-                    //kep.Click += new System.EventHandler(this.klikk);
+                    kep.Click += new System.EventHandler(this.klikk);
                     //kep.MouseHover += new System.EventHandler(this.rajta);
                     //kep.MouseLeave += new System.EventHandler(this.eltunes);
                 }
             }
+        }
+
+        private void klikk(object sender, EventArgs e)
+        {
+            PictureBox kapcsolt = sender as PictureBox;
+            pictureBox1.Image = kapcsolt.Image;
+            hanyadik =Convert.ToInt32(kapcsolt.Name);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -228,7 +263,8 @@ namespace Quarto_tesok
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            nev1 = textBox1.Text;
+            nev2 = textBox2.Text;
             if(textBox1.Text!=""&&textBox2.Text!=""&&textBox2.Text!=textBox1.Text)
             {
                 palya();//pálya generálása
@@ -238,6 +274,10 @@ namespace Quarto_tesok
                 textBox2.Visible = false;
                 button1.Visible = false;
                 button2.Visible = false;
+                label4.Visible = true;
+                label5.Visible = true;
+                pictureBox1.Visible = true;
+                label5.Text = nev1;
             }
             else
             {
