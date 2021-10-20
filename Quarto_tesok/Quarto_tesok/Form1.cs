@@ -65,15 +65,19 @@ namespace Quarto_tesok
                 kapcsolt.Enabled = false;
                 kepek[hanyadik].Visible = false;
                 pictureBox1.Image = null;
-                if (label5.Text==nev1)
+                if (label4.Text == "Tedd le a bábút")
                 {
-                    label5.Text = nev2;
+                    label4.Text = "Válassz ki egy bábút";
                 }
-                else
-                {
-                    label5.Text = nev1;
-                }
+
+                nyertes();
             }
+        }
+
+        private void nyertes()
+        {
+            //megnézi hogy van e nyertes
+
         }
 
         private void fekete()
@@ -133,6 +137,26 @@ namespace Quarto_tesok
             PictureBox kapcsolt = sender as PictureBox;
             pictureBox1.Image = kapcsolt.Image;
             hanyadik =Convert.ToInt32(kapcsolt.Name);
+            if(label4.Text == "Tedd le a bábút")
+            {
+            
+
+            }
+            else
+            {
+                if (label5.Text == nev1)
+                {
+                    label5.Text = nev2;
+                    label4.Text = "Tedd le a bábút";
+
+                }
+                else
+                {
+                    label5.Text = nev1;
+                    label4.Text = "Tedd le a bábút";
+                }
+            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
