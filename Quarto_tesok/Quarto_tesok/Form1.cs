@@ -15,6 +15,7 @@ namespace Quarto_tesok
         static string nev1;
         static string nev2;
         static Babuk[] babu = new Babuk[16];
+        static Babuk[,] gametable = new Babuk[4,4];
         static PictureBox[] kepek = new PictureBox[16];
         static int hanyadik = 0;
         public Form1()
@@ -23,6 +24,14 @@ namespace Quarto_tesok
             for (int i = 0; i < babu.Length; i++)
             {
                 babu[i] = new Babuk("0", "0", "0", false);
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    gametable[i, j] = new Babuk("0", "0", "0", false);
+                }
+                
             }
         }
 
@@ -34,11 +43,11 @@ namespace Quarto_tesok
                 {
                     PictureBox kep = new PictureBox();
                     kep.Location = new System.Drawing.Point((232 + (i * 86)), (472 - (j * 116)));
-                    kep.Name = i + " " + j;
+                    kep.Name = j+"";
                     kep.Visible = true;
                     kep.Size = new System.Drawing.Size(80,110) ;
                     kep.BackColor = Color.LightBlue;
-                    kep.Tag = "0";
+                    kep.Tag = i+"";
                     Controls.Add(kep);
                     kep.BringToFront();
 
@@ -65,6 +74,10 @@ namespace Quarto_tesok
                 kapcsolt.Enabled = false;
                 kepek[hanyadik].Visible = false;
                 pictureBox1.Image = null;
+                int j = Convert.ToInt32(kapcsolt.Name);
+                int i = Convert.ToInt32(kapcsolt.Tag);
+                gametable[i,j] = babu[hanyadik];
+                //MessageBox.Show(i + " " + j + " és a hanyadik: " + hanyadik);
                 if (label4.Text == "Tedd le a bábút")
                 {
                     label4.Text = "Válassz ki egy bábút";
