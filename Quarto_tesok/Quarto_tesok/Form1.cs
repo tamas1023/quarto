@@ -23,13 +23,13 @@ namespace Quarto_tesok
             InitializeComponent();
             for (int i = 0; i < babu.Length; i++)
             {
-                babu[i] = new Babuk("0", "0", "0", false);
+                babu[i] = new Babuk("0", "0", "0", "0");
             }
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 0; j < 4; j++)
                 {
-                    gametable[i, j] = new Babuk("0", "0", "0", false);
+                    gametable[i, j] = new Babuk("0", "0", "0", "");
                 }
                 
             }
@@ -90,6 +90,196 @@ namespace Quarto_tesok
         private void nyertes()
         {
             //megnézi hogy van e nyertes
+            int lyukas = 0;
+            int nemlyukas = 0;
+            int kor = 0;
+            int negyzet = 0;
+            int feher = 0;
+            int fekete = 0;
+            int nagy = 0;
+            int kicsi = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if(gametable[i,j].Lyukas=="igen")
+                    {
+                        lyukas++;
+                    }
+                    if (gametable[i, j].Lyukas =="nem")
+                    {
+                        nemlyukas++;
+                    }
+                    if (gametable[i, j].Alak == "kör")
+                    {
+                        kor++;
+                    }
+                    if (gametable[i, j].Alak == "negyzet")
+                    {
+                        negyzet++;
+                    }
+                    if (gametable[i, j].Szin == "feher")
+                    {
+                        feher++;
+                    }
+                    if (gametable[i, j].Szin == "fekete")
+                    {
+                        fekete++;
+                    }
+                    if (gametable[i, j].Méret == "kicsi")
+                    {
+                        kicsi++;
+                    }
+                    if (gametable[i, j].Méret == "nagy")
+                    {
+                        nagy++;
+                    }
+
+                }
+                if(kicsi==4||nagy==4||fekete==4||feher==4||kor==4||negyzet==4|| lyukas==4|| nemlyukas==4)
+                {
+                    if(label5.Text==nev1)
+                    {
+                        MessageBox.Show("A nyertes: " + nev1, "A játék  vége", MessageBoxButtons.OK);
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("A nyertes: " + nev2, "A játék  vége", MessageBoxButtons.OK);
+                        break;
+                    }
+                }
+                kicsi = 0;
+                nagy = 0;
+                fekete = 0;
+                feher = 0;
+                kor = 0;
+                negyzet = 0;
+                lyukas = 0;
+                nemlyukas = 0;
+            }
+
+            //átlós nézés
+
+            lyukas = 0;
+            nemlyukas = 0;
+            kicsi = 0;
+            nagy = 0;
+            fekete = 0;
+            feher = 0;
+            kor = 0;
+            negyzet = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                switch(gametable[i,i].Alak)
+                {
+                    case "kör":
+                        kor++;
+                        break;
+                    case "negyzet":
+                        negyzet++;
+                        break;
+                }
+                switch (gametable[i, i].Szin)
+                {
+                    case "feher":
+                        feher++;
+                        break;
+                    case "fekete":
+                        fekete++;
+                        break;
+                }
+                switch (gametable[i, i].Méret)
+                {
+                    case "kicsi":
+                        kicsi++;
+                        break;
+                    case "nagy":
+                        nagy++;
+                        break;
+                }
+                switch (gametable[i, i].Lyukas)
+                {
+                    case "igen":
+                        lyukas++;
+                        break;
+                    case "nem":
+                        nemlyukas++;
+                        break;
+                }
+            }
+            if (kicsi == 4 || nagy == 4 || fekete == 4 || feher == 4 || kor == 4 || negyzet == 4||lyukas==4||nemlyukas==4)
+            {
+                if (label5.Text == nev1)
+                {
+                    MessageBox.Show("A nyertes: " + nev1, "A játék  vége", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("A nyertes: " + nev2, "A játék  vége", MessageBoxButtons.OK);
+                }
+            }
+
+            // másik átló
+
+            kicsi = 0;
+            nagy = 0;
+            fekete = 0;
+            feher = 0;
+            kor = 0;
+            negyzet = 0;
+            lyukas = 0;
+            nemlyukas = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                switch (gametable[3-i, i].Alak)
+                {
+                    case "kör":
+                        kor++;
+                        break;
+                    case "negyzet":
+                        negyzet++;
+                        break;
+                }
+                switch (gametable[3-i, i].Szin)
+                {
+                    case "feher":
+                        feher++;
+                        break;
+                    case "fekete":
+                        fekete++;
+                        break;
+                }
+                switch (gametable[3-i, i].Méret)
+                {
+                    case "kicsi":
+                        kicsi++;
+                        break;
+                    case "nagy":
+                        nagy++;
+                        break;
+                }
+                switch (gametable[3-i, i].Lyukas)
+                {
+                    case "igen":
+                        lyukas++;
+                        break;
+                    case "nem":
+                        nemlyukas++;
+                        break;
+                }
+            }
+            if (kicsi == 4 || nagy == 4 || fekete == 4 || feher == 4 || kor == 4 || negyzet == 4 || lyukas == 4 || nemlyukas == 4)
+            {
+                if (label5.Text == nev1)
+                {
+                    MessageBox.Show("A nyertes: " + nev1, "A játék  vége", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show("A nyertes: " + nev2, "A játék  vége", MessageBoxButtons.OK);
+                }
+            }
 
         }
 
@@ -184,42 +374,42 @@ namespace Quarto_tesok
             babu[8].Szin = "feher";
             babu[8].Alak = "kör";
             babu[8].Méret = "kicsi";
-            babu[8].Lyukas = false;
+            babu[8].Lyukas = "nem";
 
             babu[9].Szin = "feher";
             babu[9].Alak = "kör";
             babu[9].Méret = "kicsi";
-            babu[9].Lyukas = true;
+            babu[9].Lyukas = "igen";
 
             babu[10].Szin = "feher";
             babu[10].Alak = "kör";
             babu[10].Méret = "nagy";
-            babu[10].Lyukas = false;
+            babu[10].Lyukas = "nem";
 
             babu[11].Szin = "feher";
             babu[11].Alak = "kör";
             babu[11].Méret = "nagy";
-            babu[11].Lyukas = true;
+            babu[11].Lyukas = "igen";
 
             babu[12].Szin = "feher";
             babu[12].Alak = "negyzet";
             babu[12].Méret = "kicsi";
-            babu[12].Lyukas = false;
+            babu[12].Lyukas = "nem";
 
             babu[13].Szin = "feher";
             babu[13].Alak = "negyzet";
             babu[13].Méret = "kicsi";
-            babu[13].Lyukas = true;
+            babu[13].Lyukas = "igen";
 
             babu[14].Szin = "feher";
             babu[14].Alak = "negyzet";
             babu[14].Méret = "nagy";
-            babu[14].Lyukas = false;
+            babu[14].Lyukas = "nem";
 
             babu[15].Szin = "feher";
             babu[15].Alak = "negyzet";
             babu[15].Méret = "nagy";
-            babu[15].Lyukas = true;
+            babu[15].Lyukas = "igen";
         }
 
         private void feketefeltoltes()
@@ -227,42 +417,42 @@ namespace Quarto_tesok
             babu[0].Szin = "fekete";
             babu[0].Alak = "kör";
             babu[0].Méret = "kicsi";
-            babu[0].Lyukas = false;
+            babu[0].Lyukas = "nem";
 
             babu[1].Szin = "fekete";
             babu[1].Alak = "kör";
             babu[1].Méret = "kicsi";
-            babu[1].Lyukas = true;
+            babu[1].Lyukas = "igen";
 
             babu[2].Szin = "fekete";
             babu[2].Alak = "kör";
             babu[2].Méret = "nagy";
-            babu[2].Lyukas = false;
+            babu[2].Lyukas = "nem";
 
             babu[3].Szin = "fekete";
             babu[3].Alak = "kör";
             babu[3].Méret = "nagy";
-            babu[3].Lyukas = true;
+            babu[3].Lyukas = "igen";
 
             babu[4].Szin = "fekete";
             babu[4].Alak = "negyzet";
             babu[4].Méret = "kicsi";
-            babu[4].Lyukas = false;
+            babu[4].Lyukas = "nem";
 
             babu[5].Szin = "fekete";
             babu[5].Alak = "negyzet";
             babu[5].Méret = "kicsi";
-            babu[5].Lyukas = true;
+            babu[5].Lyukas = "igen";
 
             babu[6].Szin = "fekete";
             babu[6].Alak = "negyzet";
             babu[6].Méret = "nagy";
-            babu[6].Lyukas = false;
+            babu[6].Lyukas = "nem";
 
             babu[7].Szin = "fekete";
             babu[7].Alak = "negyzet";
             babu[7].Méret = "nagy";
-            babu[7].Lyukas = true;
+            babu[7].Lyukas = "igen";
         }
 
         private void button2_Click(object sender, EventArgs e)

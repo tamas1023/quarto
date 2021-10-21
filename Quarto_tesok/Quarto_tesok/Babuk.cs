@@ -11,9 +11,9 @@ namespace Quarto_tesok
         private string alak;
         private string szin;
         private string méret;
-        private bool lyukas;
+        private string lyukas;
 
-        public Babuk(string alak, string szin, string méret, bool lyukas)
+        public Babuk(string alak, string szin, string méret, string lyukas)
         {
             Alak = alak;
             Szin = szin;
@@ -24,6 +24,6 @@ namespace Quarto_tesok
         public string Alak { get => alak; set => alak = value; }
         public string Szin { get => szin; set => szin = value; }
         public string Méret { get => méret; set => méret = value; }
-        public bool Lyukas { get => lyukas; set => lyukas = value; }
+        public string Lyukas { get => lyukas; set => lyukas = value; }
     }
 }
