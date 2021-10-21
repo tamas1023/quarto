@@ -18,6 +18,7 @@ namespace Quarto_tesok
         static Babuk[,] gametable = new Babuk[4,4];
         static PictureBox[] kepek = new PictureBox[16];
         static int hanyadik = 0;
+        static string kod = "";
         public Form1()
         {
             InitializeComponent();
@@ -141,11 +142,75 @@ namespace Quarto_tesok
                     if(label5.Text==nev1)
                     {
                         MessageBox.Show("A nyertes: " + nev1, "A játék  vége", MessageBoxButtons.OK);
+                        Application.Restart();
                         break;
                     }
                     else
                     {
                         MessageBox.Show("A nyertes: " + nev2, "A játék  vége", MessageBoxButtons.OK);
+                        Application.Restart();
+                        break;
+                    }
+                }
+                kicsi = 0;
+                nagy = 0;
+                fekete = 0;
+                feher = 0;
+                kor = 0;
+                negyzet = 0;
+                lyukas = 0;
+                nemlyukas = 0;
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (gametable[j, i].Lyukas == "igen")
+                    {
+                        lyukas++;
+                    }
+                    if (gametable[j, i].Lyukas == "nem")
+                    {
+                        nemlyukas++;
+                    }
+                    if (gametable[j, i].Alak == "kör")
+                    {
+                        kor++;
+                    }
+                    if (gametable[j, i].Alak == "negyzet")
+                    {
+                        negyzet++;
+                    }
+                    if (gametable[j, i].Szin == "feher")
+                    {
+                        feher++;
+                    }
+                    if (gametable[j, i].Szin == "fekete")
+                    {
+                        fekete++;
+                    }
+                    if (gametable[j, i].Méret == "kicsi")
+                    {
+                        kicsi++;
+                    }
+                    if (gametable[j, i].Méret == "nagy")
+                    {
+                        nagy++;
+                    }
+
+                }
+                if (kicsi == 4 || nagy == 4 || fekete == 4 || feher == 4 || kor == 4 || negyzet == 4 || lyukas == 4 || nemlyukas == 4)
+                {
+                    if (label5.Text == nev1)
+                    {
+                        MessageBox.Show("A nyertes: " + nev1, "A játék  vége", MessageBoxButtons.OK);
+                        Application.Restart();
+                        break;
+                    }
+                    else
+                    {
+                        MessageBox.Show("A nyertes: " + nev2, "A játék  vége", MessageBoxButtons.OK);
+                        Application.Restart();
                         break;
                     }
                 }
@@ -213,10 +278,12 @@ namespace Quarto_tesok
                 if (label5.Text == nev1)
                 {
                     MessageBox.Show("A nyertes: " + nev1, "A játék  vége", MessageBoxButtons.OK);
+                    Application.Restart();
                 }
                 else
                 {
                     MessageBox.Show("A nyertes: " + nev2, "A játék  vége", MessageBoxButtons.OK);
+                    Application.Restart();
                 }
             }
 
@@ -274,13 +341,15 @@ namespace Quarto_tesok
                 if (label5.Text == nev1)
                 {
                     MessageBox.Show("A nyertes: " + nev1, "A játék  vége", MessageBoxButtons.OK);
+                    Application.Restart();
                 }
                 else
                 {
                     MessageBox.Show("A nyertes: " + nev2, "A játék  vége", MessageBoxButtons.OK);
+                    Application.Restart();
                 }
             }
-
+            
         }
 
         private void fekete()
@@ -466,13 +535,27 @@ namespace Quarto_tesok
             textBox2.Visible = false;
             button1.Visible = false;
             button2.Text = "Vissza";
+                this.BackColor = Color.Black;
+                this.Size = new Size(700 , 550);
+                label3.Size = new Size(500, 400);
                 label3.Visible = true;
+                label5.Text = "Quarto Játékszabályok";
+                label5.Visible = true;
+                label5.ForeColor = Color.DarkRed;
+                
                 label3.Text = "A tábla 4×4 egyforma mezőből áll.Az összesen 16 figura mindegyike különbözik valamiben a többitől. A figurák négy szempont alapján is két egyforma csoportra oszthatók:" +
-                    "magas vagy alacsony,sötét vagy világos,kerek vagy szögletes,a teteje lyukas vagy sima.\n Kezdéskor a tábla üres. A kezdési jogot megszerzett játékos nem lép, hanem megjelöli, hogy az ellenfélnek melyik figurával kell lépnie."+
-"Ezután a játékosok felváltva lépnek.A soron következő játékos az ellenfele által kijelölt figurával köteles lépni, azt a tábla valamelyik szabad mezőjére kell tennie. Ütés a játékban nincs. A lépés megtétele után ő jelöli ki, hogy az ellenfele melyik figurával lépjen. A figura kijelölése a játék lényeges eleme, és nem bírálható felül. A játékosok felváltva következnek, a játék végéig.A győzelemhez a következő szükséges: a tábla egyenesen, keresztben vagy átlósan négy egyvonalban levő mezőjén négy olyan figurának kell állnia, amelyek a felsorolt négy jellemző valamelyikét nézve egy csoportba tartoznak(például négy szögletes figura).Amelyik játékos a lépésével ezt a helyzetet létrehozta, az nyerte a partit.";
+                    "\n \nmagas vagy alacsony,sötét vagy világos,kerek vagy szögletes,a teteje lyukas vagy sima.\n Kezdéskor a tábla üres. A kezdési jogot megszerzett játékos nem lép, hanem megjelöli, hogy az ellenfélnek melyik figurával kell lépnie."+
+"\n \nEzután a játékosok felváltva lépnek.A soron következő játékos az ellenfele által kijelölt figurával köteles lépni, azt a tábla valamelyik szabad mezőjére kell tennie. Ütés a játékban nincs. A lépés megtétele után ő jelöli ki, hogy az ellenfele melyik figurával lépjen. A figura kijelölése a játék lényeges eleme, és nem bírálható felül.\n \n A játékosok felváltva következnek, a játék végéig.A győzelemhez a következő szükséges: a tábla egyenesen, keresztben vagy átlósan négy egyvonalban levő mezőjén négy olyan figurának kell állnia, amelyek a felsorolt négy jellemző valamelyikét nézve egy csoportba tartoznak(például négy szögletes figura).Amelyik játékos a lépésével ezt a helyzetet létrehozta, az nyerte a partit.";
+                button2.Enabled = false;
+                label1.Focus();
+                button2.Enabled = true;
+                //this.ActiveControl = Form1;
             }
             else
             {
+                this.BackColor = Color.CornflowerBlue;
+                this.Size = new Size(835, 681);
+                label3.Size = new Size(700, 291);
                 label1.Visible = true;
                 label2.Visible = true;
                 textBox1.Visible = true;
@@ -480,7 +563,14 @@ namespace Quarto_tesok
                 button1.Visible = true;
                 button2.Text = "Leírás";
                 label3.Visible = false;
+                label5.Visible = false;
+                label5.ForeColor = Color.Black;
+
+                label1.Focus();
+                
+
             }
+            label1.Focus();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -510,7 +600,39 @@ namespace Quarto_tesok
             {
                 MessageBox.Show("Nem megfelelőek a bemeneti adatok.", "Hiba a belépésnél", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            label1.Focus();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
             
+            //működik
+            //if (e.KeyCode==Keys.I)
+            //{
+
+            //    label5.Text = kod;
+            //}
+            if (e.KeyCode == Keys.i)
+            {
+                label1.Visible = true;
+                label1.Text = kod;
+            }
+            else
+            {
+                kod += e.KeyCode;
+                label1.Focus();
+
+            }
+            if (e.KeyCode == Keys.Delete)
+            {
+                kod = "";
+                label3.Text = "";
+            }
+        }
+
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }
