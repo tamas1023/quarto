@@ -547,9 +547,10 @@ namespace Quarto_tesok
                     "\n \nmagas vagy alacsony,sötét vagy világos,kerek vagy szögletes,a teteje lyukas vagy sima.\n Kezdéskor a tábla üres. A kezdési jogot megszerzett játékos nem lép, hanem megjelöli, hogy az ellenfélnek melyik figurával kell lépnie."+
 "\n \nEzután a játékosok felváltva lépnek.A soron következő játékos az ellenfele által kijelölt figurával köteles lépni, azt a tábla valamelyik szabad mezőjére kell tennie. Ütés a játékban nincs. A lépés megtétele után ő jelöli ki, hogy az ellenfele melyik figurával lépjen. A figura kijelölése a játék lényeges eleme, és nem bírálható felül.\n \n A játékosok felváltva következnek, a játék végéig.A győzelemhez a következő szükséges: a tábla egyenesen, keresztben vagy átlósan négy egyvonalban levő mezőjén négy olyan figurának kell állnia, amelyek a felsorolt négy jellemző valamelyikét nézve egy csoportba tartoznak(például négy szögletes figura).Amelyik játékos a lépésével ezt a helyzetet létrehozta, az nyerte a partit.";
                 button2.Enabled = false;
-                label1.Focus();
+               
                 button2.Enabled = true;
                 //this.ActiveControl = Form1;
+               
             }
             else
             {
@@ -565,12 +566,8 @@ namespace Quarto_tesok
                 label3.Visible = false;
                 label5.Visible = false;
                 label5.ForeColor = Color.Black;
-
-                label1.Focus();
-                
-
             }
-            label1.Focus();
+            
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -605,31 +602,77 @@ namespace Quarto_tesok
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            
-            //működik
-            //if (e.KeyCode==Keys.I)
-            //{
-
-            //    label5.Text = kod;
-            //}
-            if (e.KeyCode == Keys.i)
-            {
-                label1.Visible = true;
-                label1.Text = kod;
-            }
-            else
-            {
-                kod += e.KeyCode;
-                label1.Focus();
-
-            }
+            kod += e.KeyCode;
             if (e.KeyCode == Keys.Delete)
             {
                 kod = "";
-                label3.Text = "";
+                //label3.Text = "";
             }
+            label1.Focus();
+            //jól kinézés miatt: label felfele csúszik (olyan hatás mintha görgetődne magától)
+            //vagy valahogy máshogy megoldani
+            //a label el belüli színezést hogy kell megoldani
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            
+            if (button2.Text=="Vissza")
+            {
+                if (keyData== Keys.Enter)
+                {
+                    //label1.Visible = true;
+                    
+                    if (kod == "UPUPDOWNDOWNLEFTRIGHTLEFTRIGHTBA")
+                    {
+                        CreditBTN.Visible = true;
+                    }
+                }
+                else
+                {
+                    //capture up arrow key
+                    if (keyData == Keys.Up)
+                    {
+                        //MessageBox.Show("You pressed Up arrow key");
+                        kod += "UP";
+                        
+                        
+                        return true;
+                    }
+                    
+                    //capture down arrow key
+                    if (keyData == Keys.Down)
+                    {
+                        //MessageBox.Show("You pressed Down arrow key");
+                        kod += "DOWN";
+                        
+                        
+                        return true;
+                    }
+                    //capture left arrow key
+                    if (keyData == Keys.Left)
+                    {
+                        //MessageBox.Show("You pressed Left arrow key");
+                        kod += "LEFT";
+                        
+                        
+                        return true;
+                    }
+                    //capture right arrow key
+                    if (keyData == Keys.Right)
+                    {
+                        //MessageBox.Show("You pressed Right arrow key");
+                        kod += "RIGHT";
+                        
+                        
+                        return true;
+                    }
+                    return base.ProcessCmdKey(ref msg, keyData);
+                    }
+                }
+                
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
         private void Form1_KeyPress(object sender, KeyPressEventArgs e)
         {
 

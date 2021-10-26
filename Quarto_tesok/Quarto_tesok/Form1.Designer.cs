@@ -39,6 +39,7 @@ namespace Quarto_tesok
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.CreditBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,12 +139,23 @@ namespace Quarto_tesok
             this.label5.Text = "label5";
             this.label5.Visible = false;
             // 
+            // CreditBTN
+            // 
+            this.CreditBTN.Location = new System.Drawing.Point(583, 46);
+            this.CreditBTN.Name = "CreditBTN";
+            this.CreditBTN.Size = new System.Drawing.Size(108, 39);
+            this.CreditBTN.TabIndex = 10;
+            this.CreditBTN.Text = "Credit";
+            this.CreditBTN.UseVisualStyleBackColor = true;
+            this.CreditBTN.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(819, 642);
+            this.Controls.Add(this.CreditBTN);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
@@ -155,6 +167,7 @@ namespace Quarto_tesok
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
+            this.Text = "Quarto Játék";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
@@ -176,6 +189,7 @@ namespace Quarto_tesok
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button CreditBTN;
     }
 }
 

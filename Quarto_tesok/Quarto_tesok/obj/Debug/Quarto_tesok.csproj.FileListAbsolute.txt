@@ -58,3 +58,13 @@ D:\214_SZFT\Quarto3\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.csproj.Gene
 D:\214_SZFT\Quarto3\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.csproj.CoreCompileInputs.cache
 D:\214_SZFT\Quarto3\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.exe
 D:\214_SZFT\Quarto3\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.pdb
+D:\1.14\BT\asztali alk\Quarto_tesok\Quarto_tesok\bin\Debug\Quarto_tesok.exe.config
+D:\1.14\BT\asztali alk\Quarto_tesok\Quarto_tesok\bin\Debug\Quarto_tesok.exe
+D:\1.14\BT\asztali alk\Quarto_tesok\Quarto_tesok\bin\Debug\Quarto_tesok.pdb
+D:\1.14\BT\asztali alk\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.csprojAssemblyReference.cache
+D:\1.14\BT\asztali alk\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.Form1.resources
+D:\1.14\BT\asztali alk\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.Properties.Resources.resources
+D:\1.14\BT\asztali alk\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.csproj.GenerateResource.cache
+D:\1.14\BT\asztali alk\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.csproj.CoreCompileInputs.cache
+D:\1.14\BT\asztali alk\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.exe
+D:\1.14\BT\asztali alk\Quarto_tesok\Quarto_tesok\obj\Debug\Quarto_tesok.pdb
