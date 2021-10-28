@@ -677,5 +677,44 @@ namespace Quarto_tesok
         {
 
         }
+
+        private void CreditBTN_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Visible = true;
+            //keszitokLBL.Visible = true;
+            richTextBox1.SelectionColor = Color.Black;
+            richTextBox1.SelectedText += "Készítők:\n";
+            richTextBox1.SelectionColor = Color.Blue;
+            richTextBox1.SelectedText += "Tamás\n";
+            richTextBox1.SelectionColor = Color.Red;
+            richTextBox1.SelectedText += "András\n";
+            this.InitializeTimer();
+        }
+        private void InitializeTimer()
+        {
+            //this.timer1.Interval = 1500; //1.5 seconds
+            this.timer1.Interval = 1;
+            this.timer1.Enabled = true; //Start
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int step = 1;
+            //Limit and stop till center-x of label reaches center-x of the form's
+            //if ((this.keszitokLBL.Location.X + (this.keszitokLBL.Width / 2)) < (this.ClientRectangle.Width / 2))
+            //{
+            //    //Move from left to right by incrementing x
+            //    this.keszitokLBL.Location = new Point(this.keszitokLBL.Location.X + step, this.keszitokLBL.Location.Y);
+
+            //}
+            if (this.richTextBox1.Location.Y>=100)
+            {
+                this.richTextBox1.Location = new Point(this.richTextBox1.Location.X, this.richTextBox1.Location.Y-step);
+            }
+            else
+            {
+                this.timer1.Enabled = false; //Stop
+            }    
+        }
+
     }
 }
