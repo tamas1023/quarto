@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace Quarto_tesok
@@ -582,6 +583,7 @@ namespace Quarto_tesok
             if(textBox1.Text!=""&&textBox2.Text!=""&&textBox2.Text!=textBox1.Text)
             {
                 palya();//pálya generálása
+                richTextBox1.Visible = false;
                 label1.Visible = false;
                 label2.Visible = false;
                 textBox1.Visible = false;
@@ -682,12 +684,17 @@ namespace Quarto_tesok
         {
             richTextBox1.Visible = true;
             //keszitokLBL.Visible = true;
+            
             richTextBox1.SelectionColor = Color.Black;
             richTextBox1.SelectedText += "Készítők:\n";
             richTextBox1.SelectionColor = Color.Blue;
-            richTextBox1.SelectedText += "Tamás\n";
+            richTextBox1.SelectedText += "Bodnár Tamás\n";
             richTextBox1.SelectionColor = Color.Red;
-            richTextBox1.SelectedText += "András\n";
+            richTextBox1.SelectedText += "Bodnár András\n";
+            richTextBox1.SelectionColor = Color.Black;
+            richTextBox1.SelectedText += "A legtöbb időt ennek a funkicónak a beépítése vette el...\n";
+            richTextBox1.SelectedText += ",még sok mindent akartam ezzel csinálni, de sajnos az még sokkal több munkát igényelt volna.\n";
+            richTextBox1.SelectedText += "De minden esetre élveztem ennek az elkészítését!\n";
             this.InitializeTimer();
         }
         private void InitializeTimer()
