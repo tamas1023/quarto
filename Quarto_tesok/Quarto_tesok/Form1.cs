@@ -584,6 +584,7 @@ namespace Quarto_tesok
             {
                 palya();//pálya generálása
                 richTextBox1.Visible = false;
+                CreditBTN.Visible = false;
                 label1.Visible = false;
                 label2.Visible = false;
                 textBox1.Visible = false;
@@ -693,7 +694,7 @@ namespace Quarto_tesok
             richTextBox1.SelectedText += "Bodnár András\n";
             richTextBox1.SelectionColor = Color.Black;
             richTextBox1.SelectedText += "A legtöbb időt ennek a funkicónak a beépítése vette el...\n";
-            richTextBox1.SelectedText += ",még sok mindent akartam ezzel csinálni, de sajnos az még sokkal több munkát igényelt volna.\n";
+            richTextBox1.SelectedText += "még sok mindent akartam ezzel csinálni, de sajnos az még sokkal több munkát igényelt volna.\n";
             richTextBox1.SelectedText += "De minden esetre élveztem ennek az elkészítését!\n";
             this.InitializeTimer();
         }
