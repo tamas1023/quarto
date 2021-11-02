@@ -23,6 +23,7 @@ namespace Quarto_tesok
         public Form1()
         {
             InitializeComponent();
+            //feltöltése a babu és game table nek
             for (int i = 0; i < babu.Length; i++)
             {
                 babu[i] = new Babuk("0", "0", "0", "0");
@@ -54,10 +55,9 @@ namespace Quarto_tesok
                     kep.BringToFront();
 
                     kep.Click += new System.EventHandler(this.palyaklikk);
-                    //kep.MouseHover += new System.EventHandler(this.rajta);
-                    //kep.MouseLeave += new System.EventHandler(this.eltunes);
                 }
             }
+            //a 2 oldalán a képek helyét generálja le
             feher();
             fekete();
         }
@@ -79,7 +79,6 @@ namespace Quarto_tesok
                 int j = Convert.ToInt32(kapcsolt.Name);
                 int i = Convert.ToInt32(kapcsolt.Tag);
                 gametable[i,j] = babu[hanyadik];
-                //MessageBox.Show(i + " " + j + " és a hanyadik: " + hanyadik);
                 if (label4.Text == "Tedd le a bábút")
                 {
                     label4.Text = "Válassz ki egy bábút";
@@ -373,8 +372,6 @@ namespace Quarto_tesok
                     kepek[db]= kep;
                     db++;
                     kep.Click += new System.EventHandler(this.klikk);
-                    //kep.MouseHover += new System.EventHandler(this.rajta);
-                    //kep.MouseLeave += new System.EventHandler(this.eltunes);
                 }
             }
         }
@@ -399,14 +396,13 @@ namespace Quarto_tesok
                     kepek[db] = kep;
                     db++;
                     kep.Click += new System.EventHandler(this.klikk);
-                    //kep.MouseHover += new System.EventHandler(this.rajta);
-                    //kep.MouseLeave += new System.EventHandler(this.eltunes);
                 }
             }
         }
 
         private void klikk(object sender, EventArgs e)
         {
+            //a képekre kapcsolás
             PictureBox kapcsolt = sender as PictureBox;
             pictureBox1.Image = kapcsolt.Image;
             hanyadik =Convert.ToInt32(kapcsolt.Name);
@@ -434,7 +430,7 @@ namespace Quarto_tesok
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // bábúk osztály, azzal jó lehet
+            // bábúk osztály feltöltése
             feketefeltoltes();
             feherfeltoltes();
         }
@@ -549,9 +545,7 @@ namespace Quarto_tesok
 "\n \nEzután a játékosok felváltva lépnek.A soron következő játékos az ellenfele által kijelölt figurával köteles lépni, azt a tábla valamelyik szabad mezőjére kell tennie. Ütés a játékban nincs. A lépés megtétele után ő jelöli ki, hogy az ellenfele melyik figurával lépjen. A figura kijelölése a játék lényeges eleme, és nem bírálható felül.\n \n A játékosok felváltva következnek, a játék végéig.A győzelemhez a következő szükséges: a tábla egyenesen, keresztben vagy átlósan négy egyvonalban levő mezőjén négy olyan figurának kell állnia, amelyek a felsorolt négy jellemző valamelyikét nézve egy csoportba tartoznak(például négy szögletes figura).Amelyik játékos a lépésével ezt a helyzetet létrehozta, az nyerte a partit.";
                 button2.Enabled = false;
                
-                button2.Enabled = true;
-                //this.ActiveControl = Form1;
-               
+                button2.Enabled = true; 
             }
             else
             {
@@ -609,12 +603,9 @@ namespace Quarto_tesok
             if (e.KeyCode == Keys.Delete)
             {
                 kod = "";
-                //label3.Text = "";
             }
             label1.Focus();
-            //jól kinézés miatt: label felfele csúszik (olyan hatás mintha görgetődne magától)
-            //vagy valahogy máshogy megoldani
-            //a label el belüli színezést hogy kell megoldani
+            
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -624,7 +615,6 @@ namespace Quarto_tesok
             {
                 if (keyData== Keys.Enter)
                 {
-                    //label1.Visible = true;
                     
                     if (kod == "UPUPDOWNDOWNLEFTRIGHTLEFTRIGHTBA")
                     {
@@ -636,38 +626,26 @@ namespace Quarto_tesok
                     //capture up arrow key
                     if (keyData == Keys.Up)
                     {
-                        //MessageBox.Show("You pressed Up arrow key");
                         kod += "UP";
-                        
-                        
                         return true;
                     }
                     
                     //capture down arrow key
                     if (keyData == Keys.Down)
                     {
-                        //MessageBox.Show("You pressed Down arrow key");
                         kod += "DOWN";
-                        
-                        
                         return true;
                     }
                     //capture left arrow key
                     if (keyData == Keys.Left)
                     {
-                        //MessageBox.Show("You pressed Left arrow key");
                         kod += "LEFT";
-                        
-                        
                         return true;
                     }
                     //capture right arrow key
                     if (keyData == Keys.Right)
                     {
-                        //MessageBox.Show("You pressed Right arrow key");
-                        kod += "RIGHT";
-                        
-                        
+                        kod += "RIGHT"; 
                         return true;
                     }
                     return base.ProcessCmdKey(ref msg, keyData);
@@ -683,9 +661,8 @@ namespace Quarto_tesok
 
         private void CreditBTN_Click(object sender, EventArgs e)
         {
+            richTextBox1.Text ="";
             richTextBox1.Visible = true;
-            //keszitokLBL.Visible = true;
-            
             richTextBox1.SelectionColor = Color.Black;
             richTextBox1.SelectedText += "Készítők:\n";
             richTextBox1.SelectionColor = Color.Blue;
@@ -700,20 +677,12 @@ namespace Quarto_tesok
         }
         private void InitializeTimer()
         {
-            //this.timer1.Interval = 1500; //1.5 seconds
             this.timer1.Interval = 1;
             this.timer1.Enabled = true; //Start
         }
         private void timer1_Tick(object sender, EventArgs e)
         {
             int step = 1;
-            //Limit and stop till center-x of label reaches center-x of the form's
-            //if ((this.keszitokLBL.Location.X + (this.keszitokLBL.Width / 2)) < (this.ClientRectangle.Width / 2))
-            //{
-            //    //Move from left to right by incrementing x
-            //    this.keszitokLBL.Location = new Point(this.keszitokLBL.Location.X + step, this.keszitokLBL.Location.Y);
-
-            //}
             if (this.richTextBox1.Location.Y>=100)
             {
                 this.richTextBox1.Location = new Point(this.richTextBox1.Location.X, this.richTextBox1.Location.Y-step);
